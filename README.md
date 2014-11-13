@@ -19,7 +19,7 @@ Run following command at CMD.exe or PowerShell.
 
 ||
 |----|
-|powershell -NoProfile -ExecutionPolicy unrestricted -Command 'iex ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((irm "https://api.github.com/repos/guitarrapc/valentia/contents/WebPlatformInstaller/Tools/RemoteInstall.ps1").Content))).Remove(0,1)'|
+|powershell -NoProfile -ExecutionPolicy unrestricted -Command 'iex ([Text.Encoding]::UTF8.GetString([Convert]::FromBase64String((irm "https://api.github.com/repos/guitarrapc/WebPlatformInstaller/contents/WebPlatformInstaller/Tools/RemoteInstall.ps1").Content))).Remove(0,1)'|
 
 
 Import Module
