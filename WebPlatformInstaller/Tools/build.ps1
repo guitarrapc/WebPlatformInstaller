@@ -37,7 +37,7 @@ $WebPlatformInstaller.helpersPath = '\functions\'
 $WebPlatformInstaller.combineTempfunction = '{0}.ps1' -f $WebPlatformInstaller.name
 $WebPlatformInstaller.fileEncode = [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding]'utf8'
 
-$WebPlatformInstaller.moduleVersion = "1.0.1"
+$WebPlatformInstaller.moduleVersion = "1.0.2"
 $WebPlatformInstaller.description = "Manage WebPlatformInstaller";
 $WebPlatformInstaller.copyright = "13/Nov/2014-"
 $WebPlatformInstaller.RequiredModules = @()

@@ -336,7 +336,7 @@ function Install-WebPlatformInstallerProgram
 
             # Install
             # InstallByNET -LanguageCode $LanguageCode -product $product
-            InstallByWebPICmd -Name $ProductId
+            InstallByWebPICmd -Name $ProductIdList
         }
         catch
         {
@@ -419,6 +419,8 @@ function Install-WebPlatformInstallerProgram
 
             $product `
             | % {
+                [Console]::WriteLine("Installing package '{0}'" -f $_.ProductId)
+
                 Write-Verbose "Get Installer"
                 $x = $_.GetInstaller($language)
                 if ($null -eq $x.InstallerFile){ [Console]::WriteLine("Package '{0}' detected as no Installer to install. Skip Installation." -f $_.ProductId); return; }
@@ -465,7 +467,7 @@ function Install-WebPlatformInstallerProgram
             {
                 foreach ($x in $Name)
                 {
-                    Write-Verbose ("Installing package '{0}'" -f $x)
+                    [Console]::WriteLine("Installing package '{0}'" -f $x)
                     [string]$arguments = @(
                         "/Install",
                         "/Products:$x",
