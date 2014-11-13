@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>6CAFC0C6-A428-4d30-A9F9-700E829FEA51</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>MyApplication</RootNamespace>
+    <AssemblyName>MyApplication</AssemblyName>
+    <Name>WebPlatformInstaller</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Functions\" />
+    <Folder Include="Config\" />
+    <Folder Include="Functions\Config\" />
+    <Folder Include="Functions\Constructor\" />
+    <Folder Include="Functions\Constructor\Private\" />
+    <Folder Include="Functions\Product\" />
+    <Folder Include="Tools\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="WebPlatformInstaller.psm1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\WebPlatformInstaller-config.ps1" />
+    <Content Include="Functions\Config\Backup-WebPlatformInstallerConfig.ps1" />
+    <Content Include="Functions\Config\Edit-WebPlatformInstallerConfig.ps1" />
+    <Content Include="Functions\Config\Reset-WebPlatformInstallerConfig.ps1" />
+    <Content Include="Functions\Config\Show-WebPlatformInstallerConfig.ps1" />
+    <Content Include="Functions\Constructor\Private\New-WebPlatformInstallerProductManager.ps1" />
+    <Content Include="Functions\Constructor\Private\New-WebPlatformInstallerInstallManager.ps1" />
+    <Content Include="Functions\Product\Install-WebPlatformInstallerProgram.ps1" />
+    <Content Include="Functions\Product\Test-WebPlatformInstallerProductIsInstalled.ps1" />
+    <Content Include="Functions\Product\Get-WebPlatformInstallerProduct.ps1" />
+    <Content Include="Tools\build.ps1" />
+    <Content Include="Tools\install.bat" />
+    <Content Include="Tools\install.ps1" />
+    <Content Include="Tools\Install-WebplatformInstaller.ps1" />
+    <Content Include="Tools\RemoteInstall.ps1" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="Build" />
+</Project>
