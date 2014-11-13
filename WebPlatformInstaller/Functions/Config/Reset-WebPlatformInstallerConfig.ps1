@@ -26,7 +26,7 @@ function Reset-WebPlatformInstallerConfig
     }
     else
     {
-        ("Could not found configuration file '{0}'." -f $configPath) | Write-ValentiaVerboseDebug
+        Write-Verbose ("Could not found configuration file '{0}'." -f $configPath)
     }
 
 }
