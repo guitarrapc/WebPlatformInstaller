@@ -6,7 +6,9 @@ function New-WebPlatformInstaller
     [CmdletBinding()]
     param()
 
-    if (-not(Test-Path $WebPlatformInstaller.RequiredAssemblies)){ throw New-Object System.NullReferenceException }
+    if (-not(Test-Path $WebPlatformInstaller.RequiredAssemblies)){ throw New-Object System.IO.FileNotFoundException ("Unable to find the specified file.", $WebPlatformInstaller.RequiredAssemblies) }
+    if (-not(Test-Path $WebPlatformInstaller.Requiredexe)){ throw New-Object System.IO.FileNotFoundException ("Unable to find the specified file.", $WebPlatformInstaller.Requiredexe) }
+
     try
     {
         [reflection.assembly]::LoadWithPartialName("Microsoft.Web.PlatformInstaller") > $null
@@ -72,7 +74,6 @@ $WebPlatformInstaller.helpersPath = "\functions"
 $WebPlatformInstaller.combineTempfunction = '{0}.ps1' -f $WebPlatformInstaller.name
 $WebPlatformInstaller.fileEncode = [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding]'utf8'
 $WebPlatformInstaller.context = New-Object System.Collections.Stack # holds onto the current state of all variables
-$WebPlatformInstaller.RequiredAssemblies = 'C:\Program Files\Microsoft\Web Platform Installer\Microsoft.Web.PlatformInstaller.dll'
 
 # contains PS Build-in Preference status
 $WebPlatformInstaller.preference = [ordered]@{
@@ -108,16 +109,19 @@ $WebPlatformInstaller.appdataconfig.backup = Join-Path $WebPlatformInstaller.app
 
 #-- Public Loading Module Parameters (Recommend to use ($WebPlatformInstaller.defaultconfigurationfile) for customization)--#
 
-# -- Export Modules when loading this module -- #
+$WebPlatformInstaller.RequiredAssemblies = 'C:\Program Files\Microsoft\Web Platform Installer\Microsoft.Web.PlatformInstaller.dll'
+$WebPlatformInstaller.Requiredexe = 'C:\Program Files\Microsoft\Web Platform Installer\WebpiCmd-x64.exe'
 
-$outputPath = Join-Path $WebPlatformInstaller.modulePath $WebPlatformInstaller.combineTempfunction
-if (Test-Path $outputPath){ . $outputPath }
+# -- Import Default configuration file -- #
+Import-WebPlatformInstaller
 
 # -- Initializer -- #
 New-WebPlatformInstaller
 
-# -- Import Default configuration file -- #
-Import-WebPlatformInstaller
+# -- Export Modules when loading this module -- #
+
+$outputPath = Join-Path $WebPlatformInstaller.modulePath $WebPlatformInstaller.combineTempfunction
+if (Test-Path $outputPath){ . $outputPath }
 
 #-- Export Modules when loading this module --#
 # You can check with following Command

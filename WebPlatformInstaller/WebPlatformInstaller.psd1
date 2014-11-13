@@ -9,13 +9,13 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'WebPlatformInstaller.psm1'
+# RootModule = ''
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # ID used to uniquely identify this module
-GUID = '08fae5e6-7826-43e4-b439-59c4e7b7b895'
+GUID = '5bac59dc-098d-4103-92c0-b71da659dbb2'
 
 # Author of this module
 Author = 'guitarrapc'
@@ -51,8 +51,7 @@ CLRVersion = '4.0.0.0'
 # RequiredModules = @()
 
 # Assemblies that must be loaded prior to importing this module
-RequiredAssemblies = 
-               'C:\Program Files\Microsoft\Web Platform Installer\Microsoft.Web.PlatformInstaller.dll'
+# RequiredAssemblies = @()
 
 # Script files (.ps1) that are run in the caller's environment prior to importing this module.
 # ScriptsToProcess = @()
@@ -64,7 +63,7 @@ RequiredAssemblies =
 # FormatsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
-# NestedModules = @()
+NestedModules = @('WebPlatformInstaller.psm1')
 
 # Functions to export from this module
 FunctionsToExport = 'Backup-WebPlatformInstallerConfig', 

@@ -43,12 +43,21 @@ Get-Command -Module WebPlatformInstaller
 
 Here's Cmdlets use in public
 
+Operate WebPlatformInstaller
+-----
+
 |CommandType|Name|Version|Source
 ----|----|----|----
-Function|Backup-WebPlatformInstallerConfig       |    1.0.0    |WebPlatformInstaller
-Function|Edit-WebPlatformInstallerConfig            | 1.0.0        | WebPlatformInstaller
-Function|Get-WebPlatformInstallerProduct           |  1.0.0       | WebPlatformInstaller
-Function|Install-WebPlatformInstallerProgram      |   1.0.0     | WebPlatformInstaller
-Function|Reset-WebPlatformInstallerConfig          |  1.0.0      | WebPlatformInstaller
-Function|Show-WebPlatformInstallerConfig          |   1.0.0     | WebPlatformInstaller
-Function|Test-WebPlatformInstallerProductIsInstalled |1.0.0 |  WebPlatformInstaller
+Function|Get-WebPlatformInstallerProduct           |  1.0.1       | WebPlatformInstaller
+Function|Install-WebPlatformInstallerProgram      |   1.0.1     | WebPlatformInstaller
+Function|Test-WebPlatformInstallerProductIsInstalled |1.0.1 |  WebPlatformInstaller
+
+Manage Config
+-----
+
+|CommandType|Name|Version|Source
+----|----|----|----
+Function|Backup-WebPlatformInstallerConfig       |    1.0.1   |WebPlatformInstaller
+Function|Edit-WebPlatformInstallerConfig            | 1.0.1        | WebPlatformInstaller
+Function|Reset-WebPlatformInstallerConfig          |  1.0.1      | WebPlatformInstaller
+Function|Show-WebPlatformInstallerConfig          |   1.0.1     | WebPlatformInstaller

@@ -200,7 +200,7 @@ function Install-WebPlatformInstallerProgram
                         [System.String]$Arguments
                     )
 
-                    $fileName  = "$env:ProgramFiles\Microsoft\Web Platform Installer\WebpiCmd-x64.exe"
+                    $fileName  = $WebPlatformInstaller.Requiredexe
                     if (!(Test-Path -Path $fileName)){ throw New-Object System.InvalidOperationException ("Web Platform Installer not installed exception!") }
 
                     try

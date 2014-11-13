@@ -73,7 +73,7 @@ function Edit-WebPlatformInstallerConfig
     }
     else
     {
-        ("Could not found configuration file '{0}'." -f $configPath) | Write-ValentiaVerboseDebug
+        Write-Verbose ("Could not found configuration file '{0}'." -f $configPath)
     }
 
 }
@@ -108,7 +108,7 @@ function Reset-WebPlatformInstallerConfig
     }
     else
     {
-        ("Could not found configuration file '{0}'." -f $configPath) | Write-ValentiaVerboseDebug
+        Write-Verbose ("Could not found configuration file '{0}'." -f $configPath)
     }
 
 }
@@ -143,7 +143,7 @@ function Show-WebPlatformInstallerConfig
     }
     else
     {
-        ("Could not found configuration file '{0}'." -f $configPath) | Write-ValentiaVerboseDebug
+        Write-Verbose ("Could not found configuration file '{0}'." -f $configPath)
     }
 }
 
@@ -489,7 +489,7 @@ function Install-WebPlatformInstallerProgram
                         [System.String]$Arguments
                     )
 
-                    $fileName  = "$env:ProgramFiles\Microsoft\Web Platform Installer\WebpiCmd-x64.exe"
+                    $fileName  = $WebPlatformInstaller.Requiredexe
                     if (!(Test-Path -Path $fileName)){ throw New-Object System.InvalidOperationException ("Web Platform Installer not installed exception!") }
 
                     try

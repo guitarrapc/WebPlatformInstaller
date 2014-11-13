@@ -37,11 +37,11 @@ $WebPlatformInstaller.helpersPath = '\functions\'
 $WebPlatformInstaller.combineTempfunction = '{0}.ps1' -f $WebPlatformInstaller.name
 $WebPlatformInstaller.fileEncode = [Microsoft.PowerShell.Commands.FileSystemCmdletProviderEncoding]'utf8'
 
-$WebPlatformInstaller.moduleVersion = "1.0.0"
+$WebPlatformInstaller.moduleVersion = "1.0.1"
 $WebPlatformInstaller.description = "Manage WebPlatformInstaller";
 $WebPlatformInstaller.copyright = "13/Nov/2014-"
 $WebPlatformInstaller.RequiredModules = @()
-$WebPlatformInstaller.RequiredAssemblies = 'C:\Program Files\Microsoft\Web Platform Installer\Microsoft.Web.PlatformInstaller.dll'
+#$WebPlatformInstaller.RequiredAssemblies = @('Microsoft.Web.PlatformInstaller.dll','WebpiCmd-x64.exe')
 $WebPlatformInstaller.clrVersion = "4.0.0.0" # .NET 4.0 with StandAlone Installer "4.0.30319.1008" or "4.0.30319.1" , "4.0.30319.17929" (Win8/2012)
 $WebPlatformInstaller.variableToExport = "WebPlatformInstaller"
 
@@ -69,7 +69,7 @@ $script:moduleManufest = @{
     ClrVersion = $WebPlatformInstaller.clrVersion;
     RequiredModules = $WebPlatformInstaller.RequiredModules;
     RequiredAssemblies = $WebPlatformInstaller.RequiredAssemblies;
-    RootModule = "{0}.psm1" -f $WebPlatformInstaller.name
+    NestedModule = "{0}.psm1" -f $WebPlatformInstaller.name
     CmdletsToExport = "*";
     FunctionsToExport = $WebPlatformInstaller.functionToExport
     VariablesToExport = $WebPlatformInstaller.variableToExport;
