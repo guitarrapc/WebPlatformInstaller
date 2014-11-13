@@ -501,13 +501,14 @@ function Install-WebPlatformInstallerProgram
                         $psi.RedirectStandardError = $true
                         $psi.FileName = $fileName
                         $psi.Arguments = $Arguments
+                        $psi.Verb = "runas"
 
                         $process = New-Object System.Diagnostics.Process 
                         $process.StartInfo = $psi
                         $process.Start() > $null
+                        $process.WaitForExit()
                         $output = $process.StandardOutput.ReadToEnd()
                         $process.StandardOutput.ReadLine()
-                        $process.WaitForExit() 
                     
                         return $output 
                     }
